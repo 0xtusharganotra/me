@@ -69,9 +69,10 @@ export const Home: React.FC = () => {
               </motion.span>
             ))}
           </h1>
-          <h2 className="text-lg text-muted-foreground font-medium flex items-center gap-2">
-            Software Engineer <span className="text-border">|</span> AI & MVP
-            Specialist
+          <h2 className="text-lg text-muted-foreground font-medium flex flex-wrap items-center gap-x-2 gap-y-1">
+            <span>Software Engineer</span>
+            <span className="text-border hidden sm:inline">|</span>
+            <span>AI & MVP Specialist</span>
           </h2>
         </div>
 
