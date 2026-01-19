@@ -40,7 +40,6 @@ export const Blog: React.FC = () => {
 
         if (response.data.status === "ok") {
           setPosts(response.data.items);
-          console.log(response.data.items);
         } else {
           setError("Failed to fetch blog posts.");
         }
@@ -99,19 +98,19 @@ export const Blog: React.FC = () => {
       <motion.div
         initial={{ opacity: 0, y: 10 }}
         animate={{ opacity: 1, y: 0 }}
-        className="space-y-10"
+        className="space-y-16"
       >
-        <div className="space-y-2 border-b border-border/40 pb-6">
+        <div className="space-y-2">
           <h1 className="text-3xl font-bold tracking-tight">Blog</h1>
           <p className="text-muted-foreground text-lg">Sharing my learnings...</p>
         </div>
-        <div className="text-center py-20 border border-dashed border-border rounded-xl">
+        <div className="text-center py-20 bg-muted/10 rounded-xl">
           <p className="text-muted-foreground">No posts found yet. They usually take a few minutes to sync from Medium.</p>
           <a
             href="https://medium.com/@ganotra.vox"
             target="_blank"
             rel="noopener noreferrer"
-            className="text-indigo-500 hover:underline mt-4 inline-block"
+            className="text-indigo-500 hover:underline mt-4 inline-block font-medium"
           >
             Check my Medium profile directly
           </a>
@@ -125,79 +124,81 @@ export const Blog: React.FC = () => {
       initial={{ opacity: 0, y: 10 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.4 }}
-      className="space-y-10"
+      className="space-y-16"
     >
-      <div className="space-y-2 border-b border-border/40 pb-6">
+      <div className="space-y-2">
         <h1 className="text-3xl font-bold tracking-tight">Blog</h1>
         <p className="text-muted-foreground text-lg">Sharing my learnings...</p>
       </div>
 
-      <div className="grid gap-8">
+      <div className="flex flex-col space-y-16">
         {posts.map((post, index) => (
           <motion.article
             key={post.guid}
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: index * 0.1 }}
-            className="group relative flex flex-col md:flex-row gap-6 p-6 rounded-xl border border-border/40 bg-card/20 hover:bg-card/40 hover:border-border transition-all duration-300"
+            className="group relative flex flex-col md:flex-row gap-8 md:gap-12"
           >
-            {/* Thumbnail (Optional - checks if valid image) */}
-            {post.thumbnail && (
-              <div className="w-full md:w-48 h-32 flex-shrink-0 overflow-hidden rounded-lg bg-muted">
-                <img
-                  src={post.thumbnail}
-                  alt={post.title}
-                  className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
-                  onError={(e) => {
-                    (e.target as HTMLImageElement).style.display = "none";
-                  }}
-                />
-              </div>
-            )}
-
-            <div className="flex-1 flex flex-col space-y-3">
-              <div className="space-y-1">
-                <div className="flex items-center gap-3 text-xs text-muted-foreground">
-                  <span className="flex items-center gap-1">
-                    <BookOpen size={12} />
-                    Medium
-                  </span>
-                  <span>•</span>
+            <div className="flex-1 space-y-4">
+              <div className="space-y-2">
+                <div className="flex items-center gap-3 text-sm text-muted-foreground/80">
                   <time dateTime={post.pubDate}>
                     {formatDate(post.pubDate)}
                   </time>
+                  <span>•</span>
+                  <span className="flex items-center gap-1.5">
+                    <BookOpen size={14} />
+                    Medium
+                  </span>
                 </div>
 
-                <h2 className="text-xl font-bold group-hover:text-indigo-500 transition-colors line-clamp-2">
+                <h2 className="text-2xl font-bold group-hover:text-indigo-500 transition-colors leading-tight">
                   <a
                     href={post.link}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="before:absolute before:inset-0"
                   >
                     {post.title}
                   </a>
                 </h2>
               </div>
 
-              <p className="text-sm text-muted-foreground leading-relaxed line-clamp-3">
+              <p className="text-muted-foreground leading-relaxed line-clamp-3 text-[15px]">
                 {getExcerpt(post.description)}
               </p>
 
-              <div className="mt-auto pt-2 flex items-center text-xs font-medium text-indigo-500 opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-300">
-                Read Article <ArrowUpRight size={12} className="ml-1" />
+              <div className="inline-flex items-center text-sm font-semibold text-indigo-500 hover:text-indigo-400 transition-colors group/link">
+                <span className="relative">
+                  Read Article
+                  <span className="absolute -bottom-0.5 left-0 w-0 h-0.5 bg-indigo-500 transition-all duration-300 group-hover:w-full"></span>
+                </span>
+                <ArrowUpRight size={14} className="ml-1 transition-transform group-hover/link:-translate-y-0.5 group-hover/link:translate-x-0.5" />
               </div>
             </div>
+
+            {post.thumbnail && (
+              <div className="hidden md:block w-48 h-28 flex-shrink-0 overflow-hidden rounded-xl grayscale opacity-80 group-hover:grayscale-0 group-hover:opacity-100 transition-all duration-500 bg-muted/20 shadow-sm">
+                <img
+                  src={post.thumbnail}
+                  alt={post.title}
+                  className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                  onError={(e) => {
+                    (e.target as HTMLImageElement).parentElement?.remove();
+                  }}
+                />
+              </div>
+            )}
           </motion.article>
         ))}
       </div>
 
-      <div className="pt-8 text-center border-t border-border/40">
+      <div className="pt-4 text-center">
         <a
           href="https://medium.com/@ganotra.vox"
           target="_blank"
           rel="noopener noreferrer"
-          className="inline-flex items-center gap-2 text-muted-foreground hover:text-foreground transition-colors font-medium px-4 py-2 hover:bg-muted/50 rounded-full"
+          className="inline-flex items-center gap-2 text-muted-foreground hover:text-foreground transition-colors font-medium px-6 py-2.5 bg-muted/30 hover:bg-muted/60 rounded-full text-sm"
         >
           Read more on Medium <ArrowUpRight size={16} />
         </a>
