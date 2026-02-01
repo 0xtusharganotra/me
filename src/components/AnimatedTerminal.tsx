@@ -20,28 +20,31 @@ export const AnimatedTerminal: React.FC = () => {
 
   useEffect(() => {
     const typeNextChar = () => {
-      if (currentLine < codeLines.length) {
-        const line = codeLines[currentLine];
-        const nextDisplayedLines = [...displayedLines];
+      setDisplayedLines((prevLines) => {
+        if (currentLine < codeLines.length) {
+          const line = codeLines[currentLine];
+          const nextDisplayedLines = [...prevLines];
 
-        if (currentChar === 0 && !nextDisplayedLines[currentLine]) {
-          nextDisplayedLines[currentLine] = "";
-        }
+          if (currentChar === 0 && !nextDisplayedLines[currentLine]) {
+            nextDisplayedLines[currentLine] = "";
+          }
 
-        if (currentChar < line.length) {
-          nextDisplayedLines[currentLine] = line.substring(0, currentChar + 1);
-          setDisplayedLines(nextDisplayedLines);
-          setCurrentChar(currentChar + 1);
-        } else {
-          setCurrentLine(currentLine + 1);
-          setCurrentChar(0);
+          if (currentChar < line.length) {
+            nextDisplayedLines[currentLine] = line.substring(0, currentChar + 1);
+            setCurrentChar(currentChar + 1);
+          } else {
+            setCurrentLine(currentLine + 1);
+            setCurrentChar(0);
+          }
+          return nextDisplayedLines;
         }
-      }
+        return prevLines;
+      });
     };
 
     const timeout = setTimeout(typeNextChar, 60 + Math.random() * 40);
     return () => clearTimeout(timeout);
-  }, [currentLine, currentChar, displayedLines]);
+  }, [currentLine, currentChar]);
 
   return (
     <motion.div
