@@ -18,6 +18,7 @@ import {
 import { motion } from "framer-motion";
 import { GitHubCalendar } from "react-github-calendar";
 import { useTheme } from "../hooks/useTheme";
+import { AnimatedTerminal } from "../components/AnimatedTerminal";
 import axios from "axios";
 
 interface BlogPost {
@@ -134,103 +135,111 @@ export const Home: React.FC = () => {
       className="space-y-16"
     >
       {/* Hero Section */}
-      <section className="space-y-6">
-        <div className="space-y-2">
-          <h1 className="text-4xl md:text-5xl font-bold tracking-tight flex flex-wrap text-foreground pb-2">
-            {"Tushar Ganotra".split("").map((char, index) => (
-              <motion.span
-                key={index}
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                transition={{ duration: 0.05, delay: index * 0.08 }}
-              >
-                {char === " " ? "\u00A0" : char}
-              </motion.span>
-            ))}
-          </h1>
-          <h2 className="text-lg text-muted-foreground font-medium flex flex-wrap items-center gap-x-2 gap-y-1">
-            <span>Software Engineer</span>
-            <span className="text-border hidden sm:inline">|</span>
-            <span>AI & MVP Specialist</span>
-          </h2>
+      <section className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center">
+        {/* Left Column - Content */}
+        <div className="space-y-6">
+          <div className="space-y-2">
+            <h1 className="text-4xl md:text-5xl font-bold tracking-tight flex flex-wrap text-foreground pb-2">
+              {"Tushar Ganotra".split("").map((char, index) => (
+                <motion.span
+                  key={index}
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  transition={{ duration: 0.05, delay: index * 0.08 }}
+                >
+                  {char === " " ? "\u00A0" : char}
+                </motion.span>
+              ))}
+            </h1>
+            <h2 className="text-lg text-muted-foreground font-medium flex flex-wrap items-center gap-x-2 gap-y-1">
+              <span>Software Engineer</span>
+              <span className="text-border hidden sm:inline">|</span>
+              <span>AI & MVP Specialist</span>
+            </h2>
+          </div>
+
+          <div className="space-y-4 max-w-2xl text-base text-muted-foreground leading-relaxed">
+            <p>
+              Full-stack engineer specializing in building reliable, scalable, and{" "}
+              <span className="text-foreground font-medium">
+                AI-integrated backend systems
+              </span>
+              . I transform complex requirements into high-impact{" "}
+              <span className="text-foreground font-medium">MVPs</span> and
+              production-ready architectures.
+            </p>
+            <p>
+              With deep expertise in{" "}
+              <span className="text-foreground">
+                Node.js, TypeScript, and AWS
+              </span>
+              , I design systems that scale. From multithreaded proxy servers in C
+              to context-aware AI assistants, I build end-to-end solutions.
+            </p>
+          </div>
+
+          {/* Social Links */}
+          <div className="flex gap-4 pt-2">
+            <a
+              href="https://github.com/0xtusharganotra"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-muted-foreground hover:text-foreground transition-colors"
+              title="GitHub"
+            >
+              <Github size={20} />
+            </a>
+            <a
+              href="https://linkedin.com/in/tusharganotra"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-muted-foreground hover:text-foreground transition-colors"
+              title="LinkedIn"
+            >
+              <Linkedin size={20} />
+            </a>
+            <a
+              href="https://leetcode.com/0xtusharganotra"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-muted-foreground hover:text-foreground transition-colors"
+              title="LeetCode"
+            >
+              <Code size={20} />
+            </a>
+            <a
+              href="mailto:ganotra.vox@gmail.com"
+              className="text-muted-foreground hover:text-foreground transition-colors"
+              title="Email"
+            >
+              <Mail size={20} />
+            </a>
+          </div>
+
+          {/* CTAs */}
+          <div className="flex flex-wrap gap-3 items-center pt-2">
+            <a
+              href="mailto:ganotra.vox@gmail.com"
+              className="inline-flex items-center gap-2 px-4 py-2 bg-foreground text-background rounded-md text-sm font-medium hover:opacity-90 transition-opacity"
+            >
+              <Sparkles size={16} className="text-indigo-500" />
+              Let's Connect
+            </a>
+            <a
+              href="https://drive.google.com/file/d/1rumbWTg4gRUQN4HdwYZOuQ03DWSqg_CW/view?usp=sharing"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 px-4 py-2 border border-border bg-background hover:bg-muted/50 rounded-md text-sm font-medium transition-colors"
+            >
+              <FileText size={16} />
+              View Resume
+            </a>
+          </div>
         </div>
 
-        <div className="space-y-4 max-w-2xl text-base text-muted-foreground leading-relaxed">
-          <p>
-            Full-stack engineer specializing in building reliable, scalable, and{" "}
-            <span className="text-foreground font-medium">
-              AI-integrated backend systems
-            </span>
-            . I transform complex requirements into high-impact{" "}
-            <span className="text-foreground font-medium">MVPs</span> and
-            production-ready architectures.
-          </p>
-          <p>
-            With deep expertise in{" "}
-            <span className="text-foreground">
-              Node.js, TypeScript, and AWS
-            </span>
-            , I design systems that scale. From multithreaded proxy servers in C
-            to context-aware AI assistants, I build end-to-end solutions.
-          </p>
-        </div>
-
-        {/* Social Links */}
-        <div className="flex gap-4 pt-2">
-          <a
-            href="https://github.com/0xtusharganotra"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-muted-foreground hover:text-foreground transition-colors"
-            title="GitHub"
-          >
-            <Github size={20} />
-          </a>
-          <a
-            href="https://linkedin.com/in/tusharganotra"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-muted-foreground hover:text-foreground transition-colors"
-            title="LinkedIn"
-          >
-            <Linkedin size={20} />
-          </a>
-          <a
-            href="https://leetcode.com/0xtusharganotra"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-muted-foreground hover:text-foreground transition-colors"
-            title="LeetCode"
-          >
-            <Code size={20} />
-          </a>
-          <a
-            href="mailto:ganotra.vox@gmail.com"
-            className="text-muted-foreground hover:text-foreground transition-colors"
-            title="Email"
-          >
-            <Mail size={20} />
-          </a>
-        </div>
-
-        {/* CTAs */}
-        <div className="flex flex-wrap gap-3 items-center pt-2">
-          <a
-            href="mailto:ganotra.vox@gmail.com"
-            className="inline-flex items-center gap-2 px-4 py-2 bg-foreground text-background rounded-md text-sm font-medium hover:opacity-90 transition-opacity"
-          >
-            <Sparkles size={16} className="text-indigo-500" />
-            Let's Connect
-          </a>
-          <a
-            href="https://drive.google.com/file/d/1rumbWTg4gRUQN4HdwYZOuQ03DWSqg_CW/view?usp=sharing"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 px-4 py-2 border border-border bg-background hover:bg-muted/50 rounded-md text-sm font-medium transition-colors"
-          >
-            <FileText size={16} />
-            View Resume
-          </a>
+        {/* Right Column - Animated Terminal */}
+        <div className="flex justify-center lg:justify-end">
+          <AnimatedTerminal />
         </div>
       </section>
 
