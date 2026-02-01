@@ -59,7 +59,7 @@ export const AnimatedTerminal: React.FC = () => {
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.5, delay: 0.2 }}
-      className="w-full max-w-lg mx-auto"
+      className="w-full max-w-md mx-auto"
     >
       <div className="rounded-lg border border-border/60 bg-card/50 shadow-lg overflow-hidden">
         {/* Terminal Header */}
@@ -76,7 +76,7 @@ export const AnimatedTerminal: React.FC = () => {
         </div>
 
         {/* Terminal Body */}
-        <div className="p-4 md:p-5 font-mono text-xs md:text-sm leading-relaxed">
+        <div className="p-4 md:p-5 font-mono text-xs md:text-sm leading-relaxed min-h-[180px]">
           {displayedLines.map((line, index) => {
             const isKeyword = ["const", "async", "function", "return", "new"].some(
               (kw) => line.trim().startsWith(kw)
