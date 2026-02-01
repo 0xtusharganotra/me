@@ -104,7 +104,7 @@ export const Blog: React.FC = () => {
           <h1 className="text-3xl font-bold tracking-tight">Blog</h1>
           <p className="text-muted-foreground text-lg">Sharing my learnings...</p>
         </div>
-        <div className="text-center py-20 bg-muted/10 rounded-xl">
+        <div className="text-center py-12 bg-muted/10 rounded-lg">
           <p className="text-muted-foreground">No posts found yet. They usually take a few minutes to sync from Medium.</p>
           <a
             href="https://medium.com/@ganotra.vox"
@@ -124,21 +124,21 @@ export const Blog: React.FC = () => {
       initial={{ opacity: 0, y: 10 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.4 }}
-      className="space-y-16"
+      className="space-y-12"
     >
       <div className="space-y-2">
         <h1 className="text-3xl font-bold tracking-tight">Blog</h1>
         <p className="text-muted-foreground text-lg">Sharing my learnings...</p>
       </div>
 
-      <div className="flex flex-col space-y-16">
+      <div className="flex flex-col space-y-12">
         {posts.map((post, index) => (
           <motion.article
             key={post.guid}
             initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: index * 0.1 }}
-            className="group relative flex flex-col md:flex-row gap-8 md:gap-12"
+            className="group relative flex flex-col md:flex-row gap-6 md:gap-8"
           >
             <div className="flex-1 space-y-4">
               <div className="space-y-2">
@@ -153,7 +153,7 @@ export const Blog: React.FC = () => {
                   </span>
                 </div>
 
-                <h2 className="text-2xl font-bold group-hover:text-indigo-500 transition-colors leading-tight">
+                <h2 className="text-xl font-semibold group-hover:text-indigo-500 transition-colors leading-tight">
                   <a
                     href={post.link}
                     target="_blank"
@@ -164,7 +164,7 @@ export const Blog: React.FC = () => {
                 </h2>
               </div>
 
-              <p className="text-muted-foreground leading-relaxed line-clamp-3 text-[15px]">
+              <p className="text-muted-foreground leading-relaxed line-clamp-3 text-sm">
                 {getExcerpt(post.description)}
               </p>
 
@@ -178,11 +178,11 @@ export const Blog: React.FC = () => {
             </div>
 
             {post.thumbnail && (
-              <div className="hidden md:block w-48 h-28 flex-shrink-0 overflow-hidden rounded-xl grayscale opacity-80 group-hover:grayscale-0 group-hover:opacity-100 transition-all duration-500 bg-muted/20 shadow-sm">
+              <div className="hidden md:block w-48 h-28 flex-shrink-0 overflow-hidden rounded-lg bg-muted/20">
                 <img
                   src={post.thumbnail}
                   alt={post.title}
-                  className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                  className="w-full h-full object-cover"
                   onError={(e) => {
                     (e.target as HTMLImageElement).parentElement?.remove();
                   }}
@@ -193,12 +193,12 @@ export const Blog: React.FC = () => {
         ))}
       </div>
 
-      <div className="pt-4 text-center">
+      <div className="pt-6 text-center">
         <a
           href="https://medium.com/@ganotra.vox"
           target="_blank"
           rel="noopener noreferrer"
-          className="inline-flex items-center gap-2 text-muted-foreground hover:text-foreground transition-colors font-medium px-6 py-2.5 bg-muted/30 hover:bg-muted/60 rounded-full text-sm"
+          className="inline-flex items-center gap-2 text-muted-foreground hover:text-foreground transition-colors font-medium px-6 py-2.5 bg-muted/30 hover:bg-muted/50 rounded-full text-sm"
         >
           Read more on Medium <ArrowUpRight size={16} />
         </a>
