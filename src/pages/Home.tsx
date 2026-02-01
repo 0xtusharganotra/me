@@ -324,7 +324,7 @@ export const Home: React.FC = () => {
                 layer.
               </p>
               <a
-                href="/now"
+                href="/https://0xtusharganotra.github.io/me/#/now"
                 className="text-xs text-indigo-500 hover:text-indigo-400 transition-colors flex items-center gap-1 font-medium"
               >
                 See what I'm up to <ArrowUpRight size={12} />
