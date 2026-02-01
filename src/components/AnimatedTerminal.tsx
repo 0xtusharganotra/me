@@ -28,11 +28,11 @@ export const AnimatedTerminal: React.FC = () => {
       if (currentLine < codeLines.length) {
         const line = codeLines[currentLine];
         const nextDisplayedLines = [...displayedLines];
-        
+
         if (currentChar === 0 && !nextDisplayedLines[currentLine]) {
           nextDisplayedLines[currentLine] = "";
         }
-        
+
         if (currentChar < line.length) {
           nextDisplayedLines[currentLine] = line.substring(0, currentChar + 1);
           setDisplayedLines(nextDisplayedLines);
@@ -43,7 +43,6 @@ export const AnimatedTerminal: React.FC = () => {
         }
       } else {
         setTimeout(() => {
-          setDisplayedLines([]);
           setCurrentLine(0);
           setCurrentChar(0);
         }, 3000);
