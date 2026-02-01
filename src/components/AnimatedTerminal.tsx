@@ -2,20 +2,15 @@ import React, { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 
 const codeLines = [
-  "const createAI = () => {",
-  "  const brain = new NeuralNetwork();",
-  "  const memory = new VectorDB();",
-  "  ",
-  "  async function ask(query) {",
-  "    const context = await memory.search(query);",
-  "    return await brain.generate(context);",
-  "  }",
-  "  ",
-  "  return { ask };",
-  "};",
+  "// Hello, Tushar Ganotra!",
+  "// ☕ drinking coffee & debugging mess",
+  "// 🎵 stuck in infinite loop of coding",
+  "// while listening to music...",
   "",
-  "const agent = createAI();",
-  "agent.ask('Hello, world!');",
+  "console.log('Building AI agents');",
+  "console.log('Shipping MVPs');",
+  "console.log('Fixing bugs 🐛');",
+  "console.log('Repeat forever 🔄');",
 ];
 
 export const AnimatedTerminal: React.FC = () => {
@@ -41,15 +36,10 @@ export const AnimatedTerminal: React.FC = () => {
           setCurrentLine(currentLine + 1);
           setCurrentChar(0);
         }
-      } else {
-        setTimeout(() => {
-          setCurrentLine(0);
-          setCurrentChar(0);
-        }, 3000);
       }
     };
 
-    const timeout = setTimeout(typeNextChar, 50 + Math.random() * 50);
+    const timeout = setTimeout(typeNextChar, 60 + Math.random() * 40);
     return () => clearTimeout(timeout);
   }, [currentLine, currentChar, displayedLines]);
 
@@ -117,11 +107,13 @@ export const AnimatedTerminal: React.FC = () => {
           })}
           
           {/* Blinking Cursor */}
-          <motion.span
-            animate={{ opacity: [1, 0, 1] }}
-            transition={{ duration: 1, repeat: Infinity }}
-            className="inline-block w-2 h-4 bg-foreground ml-1 align-middle"
-          />
+          {currentLine < codeLines.length && (
+            <motion.span
+              animate={{ opacity: [1, 0, 1] }}
+              transition={{ duration: 1, repeat: Infinity }}
+              className="inline-block w-2 h-4 bg-foreground ml-1 align-middle"
+            />
+          )}
         </div>
       </div>
     </motion.div>
