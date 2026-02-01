@@ -242,7 +242,7 @@ export const Home: React.FC = () => {
               Let's Connect
             </a>
             <a
-              href="https://drive.google.com/file/d/1rumbWTg4gRUQN4HdwYZOuQ03DWSqg_CW/view?usp=sharing"
+              href="https://drive.google.com/file/d/1iGo6WjcxMDfxQWnHYIYHJqT6t9Fy4Lpy/view?usp=sharing"
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center gap-2 px-4 py-2 border border-border bg-background hover:bg-muted/50 rounded-md text-sm font-medium transition-colors"
