@@ -63,7 +63,14 @@ export const Home: React.FC = () => {
     {
       category: "Backend & Systems",
       icon: <Cpu size={16} />,
-      items: ["Microservices", "REST APIs", "Socket.io", "Multithreading", "Node.js", "FastAPI"],
+      items: [
+        "Microservices",
+        "REST APIs",
+        "Socket.io",
+        "Multithreading",
+        "Node.js",
+        "FastAPI",
+      ],
     },
     {
       category: "Data & AI",
@@ -73,7 +80,15 @@ export const Home: React.FC = () => {
     {
       category: "Cloud & DevOps",
       icon: <Cloud size={16} />,
-      items: ["AWS (EC2, Lambda)", "Docker", "CI/CD", "Nginx", "Azure", "Kubernetes", "Jest"],
+      items: [
+        "AWS (EC2, Lambda)",
+        "Docker",
+        "CI/CD",
+        "Nginx",
+        "Azure",
+        "Kubernetes",
+        "Jest",
+      ],
     },
   ];
 
@@ -160,7 +175,8 @@ export const Home: React.FC = () => {
 
           <div className="space-y-4 max-w-2xl text-base text-muted-foreground leading-relaxed">
             <p>
-              Full-stack engineer specializing in building reliable, scalable, and{" "}
+              Full-stack engineer specializing in building reliable, scalable,
+              and{" "}
               <span className="text-foreground font-medium">
                 AI-integrated backend systems
               </span>
@@ -173,8 +189,8 @@ export const Home: React.FC = () => {
               <span className="text-foreground">
                 Node.js, TypeScript, and AWS
               </span>
-              , I design systems that scale. From multithreaded proxy servers in C
-              to context-aware AI assistants, I build end-to-end solutions.
+              , I design systems that scale. From multithreaded proxy servers in
+              C to context-aware AI assistants, I build end-to-end solutions.
             </p>
           </div>
 
@@ -248,7 +264,7 @@ export const Home: React.FC = () => {
         <div className="flex items-center justify-between">
           <h3 className="text-lg font-semibold">Featured Work</h3>
           <a
-            href="/projects"
+            href="https://0xtusharganotra.github.io/me/#/projects"
             className="text-sm text-muted-foreground hover:text-foreground transition-colors flex items-center gap-1"
           >
             View all <ArrowUpRight size={14} />
@@ -303,8 +319,9 @@ export const Home: React.FC = () => {
             <div className="flex-1 space-y-2">
               <h4 className="text-sm font-semibold">Currently</h4>
               <p className="text-xs text-muted-foreground leading-relaxed">
-                Software Engineer at <b>HCL Technologies</b>. Building AI Agents,
-                REST APIs, and a SaaS product with RAG-based memory layer.
+                Software Engineer at <b>HCL Technologies</b>. Building AI
+                Agents, REST APIs, and a SaaS product with RAG-based memory
+                layer.
               </p>
               <a
                 href="/now"
@@ -366,7 +383,7 @@ export const Home: React.FC = () => {
         <div className="flex items-center justify-between">
           <h3 className="text-lg font-semibold">Latest Writing</h3>
           <a
-            href="/blog"
+            href="https://0xtusharganotra.github.io/me/#/blog"
             className="text-sm text-muted-foreground hover:text-foreground transition-colors flex items-center gap-1"
           >
             View all <ArrowUpRight size={14} />
@@ -395,7 +412,9 @@ export const Home: React.FC = () => {
                 className="block group space-y-1"
               >
                 <div className="flex items-center gap-2 text-xs text-muted-foreground">
-                  <time dateTime={post.pubDate}>{formatDate(post.pubDate)}</time>
+                  <time dateTime={post.pubDate}>
+                    {formatDate(post.pubDate)}
+                  </time>
                   <span>•</span>
                   <span>Medium</span>
                 </div>
@@ -407,7 +426,9 @@ export const Home: React.FC = () => {
           </div>
         ) : (
           <div className="text-center py-8">
-            <p className="text-sm text-muted-foreground">Loading recent posts...</p>
+            <p className="text-sm text-muted-foreground">
+              Loading recent posts...
+            </p>
           </div>
         )}
       </section>
