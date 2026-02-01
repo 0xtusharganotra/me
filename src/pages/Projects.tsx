@@ -59,17 +59,17 @@ export const Projects: React.FC = () => {
         <h1 className="text-3xl font-bold tracking-tight">Projects</h1>
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-6">
         {projects.map((project, index) => (
           <motion.div
             key={index}
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: index * 0.1 }}
-            className="group relative flex flex-col p-6 rounded-xl border border-border/50 bg-card/30 hover:bg-card/50 hover:border-border transition-all duration-300 shadow-sm hover:shadow-md"
+            className={`group relative flex flex-col p-6 md:p-8 rounded-xl border border-border/40 bg-card/30 hover:bg-card/70 hover:border-indigo-500/30 hover:shadow-xl hover:shadow-indigo-500/5 hover:-translate-y-1 transition-all duration-300 ${project.featured ? 'md:col-span-2' : ''}`}
           >
             <div className="flex justify-between items-start mb-4">
-              <div className="p-2 bg-muted/50 rounded-lg text-foreground/80 group-hover:text-indigo-500 transition-colors">
+              <div className="p-2 bg-muted/50 rounded-lg text-foreground/80 group-hover:text-indigo-500 group-hover:bg-indigo-500/10 transition-all duration-300">
                 <FolderGit2 size={20} />
               </div>
               <div className="flex gap-2">
@@ -98,7 +98,7 @@ export const Projects: React.FC = () => {
               </div>
             </div>
 
-            <h3 className="text-lg font-bold mb-2 group-hover:text-indigo-500 transition-colors">
+            <h3 className="text-xl font-semibold mb-2 group-hover:text-indigo-500 transition-colors">
               {project.title}
             </h3>
 
@@ -106,11 +106,11 @@ export const Projects: React.FC = () => {
               {project.description}
             </p>
 
-            <div className="flex flex-wrap gap-2 mt-auto">
+            <div className="flex flex-wrap gap-1.5 mt-auto">
               {project.tech.map((t) => (
                 <span
                   key={t}
-                  className="px-2 py-1 text-[11px] uppercase tracking-wider font-semibold bg-muted/50 text-muted-foreground rounded border border-border/50"
+                  className="px-3 py-1.5 text-[11px] uppercase tracking-wider font-semibold bg-indigo-500/10 text-indigo-600 dark:text-indigo-400 border border-indigo-500/20 rounded-md"
                 >
                   {t}
                 </span>

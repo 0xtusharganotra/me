@@ -62,17 +62,17 @@ export const Home: React.FC = () => {
     {
       category: "Backend & Systems",
       icon: <Cpu size={16} />,
-      items: ["Microservices", "REST APIs", "Socket.io", "Multithreading"],
+      items: ["Microservices", "REST APIs", "Socket.io", "Multithreading", "Node.js", "FastAPI"],
     },
     {
       category: "Data & AI",
       icon: <Database size={16} />,
-      items: ["MongoDB", "PostgreSQL", "Vector DBs", "RAG"],
+      items: ["MongoDB", "PostgreSQL", "Vector DBs", "RAG", "Gen AI", "Prisma"],
     },
     {
       category: "Cloud & DevOps",
       icon: <Cloud size={16} />,
-      items: ["AWS (EC2, Lambda)", "Docker", "CI/CD", "Nginx"],
+      items: ["AWS (EC2, Lambda)", "Docker", "CI/CD", "Nginx", "Azure", "Kubernetes", "Jest"],
     },
   ];
 
