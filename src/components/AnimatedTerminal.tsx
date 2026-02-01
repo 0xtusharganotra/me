@@ -2,11 +2,6 @@ import React, { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 
 const codeLines = [
-  "// Hello, Tushar Ganotra!",
-  "// ☕ drinking coffee & debugging mess",
-  "// 🎵 stuck in infinite loop of coding",
-  "// while listening to music...",
-  "",
   "console.log('Building AI agents');",
   "console.log('Shipping MVPs');",
   "console.log('Fixing bugs 🐛');",
@@ -70,12 +65,11 @@ export const AnimatedTerminal: React.FC = () => {
         {/* Terminal Body */}
         <div className="p-4 md:p-5 font-mono text-xs md:text-sm leading-relaxed min-h-[180px]">
           {displayedLines.map((line, index) => {
-            const isKeyword = ["const", "async", "function", "return", "new"].some(
+            const isKeyword = ["const", "async", "function", "return", "new", "console"].some(
               (kw) => line.trim().startsWith(kw)
             );
             const isFunction = line.includes("function") || line.includes("=>");
             const isString = line.includes('"') || line.includes("'");
-            const isComment = line.trim() === "" || line.includes("//");
 
             return (
               <motion.div
@@ -85,11 +79,9 @@ export const AnimatedTerminal: React.FC = () => {
                 transition={{ duration: 0.1 }}
                 className="flex"
               >
-                {line && (
-                  <span className="text-indigo-500 dark:text-indigo-400 mr-3 select-none">
-                    {String(index + 1).padStart(2, "0")}
-                  </span>
-                )}
+                <span className="text-indigo-500 dark:text-indigo-400 mr-3 select-none">
+                  {String(index + 1).padStart(2, "0")}
+                </span>
                 <span
                   className={`flex-1 ${
                     isKeyword
@@ -98,12 +90,10 @@ export const AnimatedTerminal: React.FC = () => {
                       ? "text-purple-600 dark:text-purple-400 font-semibold"
                       : isString
                       ? "text-green-600 dark:text-green-400"
-                      : isComment
-                      ? "text-muted-foreground"
                       : "text-foreground"
                   }`}
                 >
-                  {line || "\u00A0"}
+                  {line}
                 </span>
               </motion.div>
             );
