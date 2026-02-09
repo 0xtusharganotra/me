@@ -215,7 +215,7 @@ export const Home: React.FC = () => {
               <Linkedin size={20} />
             </a>
             <a
-              href="https://leetcode.com/0xtusharganotra"
+              href="https://leetcode.com/u/tusharganotra/"
               target="_blank"
               rel="noopener noreferrer"
               className="text-muted-foreground hover:text-foreground transition-colors"
