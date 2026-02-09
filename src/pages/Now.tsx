@@ -42,13 +42,24 @@ export const Now: React.FC = () => {
         <div className="space-y-8 border-l-2 border-border ml-2 pl-6 relative">
           <div className="relative">
             <span className="absolute -left-[31px] top-1 h-3 w-3 rounded-full bg-indigo-500 ring-4 ring-background"></span>
-            <h3 className="text-sm font-semibold">Software Engineer</h3>
+            <h3 className="text-sm font-semibold">Software Engineer II</h3>
             <p className="text-xs text-muted-foreground">
-              HCL Technologies • (December) 2023 - Present
+              HCL Technologies • (November) 2025 - Present
             </p>
             <p className="mt-2 text-sm text-muted-foreground">
-              Building AI Agents, Building Produtcion ready REST API, Handle
-              CI/CD Pipelines
+              Building RAG Based AI Agents, Building Produtcion ready REST API,
+              Handle CI/CD Pipelines
+            </p>
+          </div>
+          <div className="relative">
+            <span className="absolute -left-[31px] top-1 h-3 w-3 rounded-full bg-muted-foreground ring-4 ring-background"></span>
+            <h3 className="text-sm font-semibold">Software Engineer</h3>
+            <p className="text-xs text-muted-foreground">
+              HCL Technologies • (December) 2023 - (November) 2025
+            </p>
+            <p className="mt-2 text-sm text-muted-foreground">
+              Working on legacy codebase migration from clear clase to github,
+              Writting Automation scripts for migration
             </p>
           </div>
 
@@ -75,7 +86,9 @@ export const Now: React.FC = () => {
 
         <div className="space-y-4">
           <div className="p-4 bg-muted/50 rounded-lg">
-            <h3 className="text-sm font-semibold">B-Tech (Information Technology)</h3>
+            <h3 className="text-sm font-semibold">
+              B-Tech (Information Technology)
+            </h3>
             <p className="text-xs text-muted-foreground">
               Maharaja Agrasen Institute of Technologies • 2019 - 2023
             </p>
